@@ -1,0 +1,82 @@
+// AI Chat Floating Action Button Styles
+.ai-chat-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+
+  .fab-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #0f62fe; // IBM Blue
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0353e9; // Darker IBM Blue
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      transform: scale(1.1);
+      text-decoration: none;
+      color: white;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:focus {
+      outline: 2px solid #0f62fe;
+      outline-offset: 2px;
+    }
+
+    svg {
+      width: 28px;
+      height: 28px;
+      pointer-events: none;
+    }
+  }
+}
+
+// Pulse animation for initial attention
+@keyframes ai-chat-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.ai-chat-fab.pulse-animation .fab-button {
+  animation: ai-chat-pulse 2s ease-in-out 3;
+}
+
+// Responsive design for mobile
+@media (max-width: 768px) {
+  .ai-chat-fab {
+    bottom: 16px;
+    right: 16px;
+
+    .fab-button {
+      width: 48px;
+      height: 48px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+// Made with Bob
